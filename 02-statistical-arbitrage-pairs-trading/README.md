@@ -19,6 +19,16 @@ mere correlation.
 > traded with a dynamically-updated hedge ratio, produces a positive
 > risk-adjusted return net of transaction costs.
 
+## Concepts Applied (Mapped to a Quant Finance Curriculum)
+
+| Concept | Where it's used |
+|---|---|
+| Stochastic processes & SDEs (Stochastic Calculus / Introduction to Stochastic Calculus) | The spread is modeled as an Ornstein-Uhlenbeck process $dS_t=\kappa(\theta-S_t)dt+\sigma dW_t$, discretized as an AR(1) to estimate mean-reversion speed and half-life (`fit_ou_process`) |
+| Unit-root & cointegration testing (Statistics for Math Finance) | Augmented Dickey-Fuller test on the spread and the Johansen trace test on the bivariate VECM system (`cointegration.py`), instead of naively trading on price correlation |
+| State-space models & filtering (Computational Methods of Mathematical Finance) | A 2-state Kalman filter recursively estimates a time-varying hedge ratio $\beta_t$, contrasted against a rolling-OLS baseline (`kalman.py`) |
+| Rule-based signal generation & execution (Algorithmic & High-Frequency Trading) | Z-score entry/exit thresholds, a hard stop-loss, and a rolling-ADF regime filter implemented as an explicit trading state machine (`generate_positions`) |
+| Risk control under model uncertainty (Dynamic Portfolio Theory / Corporate Risk Management) | Structural-break awareness — standing aside when the trailing spread stops looking stationary, rather than assuming the cointegrating relationship holds forever |
+
 ## 2. Universe & Data
 
 Candidate pairs are chosen from **economically related businesses** first,

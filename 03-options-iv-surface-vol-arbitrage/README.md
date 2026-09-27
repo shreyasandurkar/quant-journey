@@ -18,6 +18,17 @@ Two classic derivatives-desk questions:
    empirical fact that option-implied volatility trades above
    subsequently realized volatility, on average?
 
+## Concepts Applied (Mapped to a Quant Finance Curriculum)
+
+| Concept | Where it's used |
+|---|---|
+| Black-Scholes PDE / Ito's Lemma (Stochastic Calculus, Advanced Derivatives) | `black_scholes.py` implements the closed-form solution of the BS PDE (price, delta, vega, gamma) that falls out of applying Ito's Lemma to geometric Brownian motion |
+| Root-finding & numerical methods (Computational Methods of Mathematical Finance) | Newton-Raphson inversion of price → implied vol, with a bisection fallback for numerical robustness near-zero vega (`implied_vol`) |
+| No-arbitrage theory (Advanced Derivatives) | Static butterfly (Breeden-Litzenberger convexity) and calendar-spread (total-variance monotonicity) arbitrage checks on the fitted surface |
+| Interpolation & curve fitting (Computational Methods) | Cubic splines fit the volatility smile per expiry as a function of log-moneyness |
+| Delta-hedging & risk premia (Advanced Derivatives, Corporate/Market Risk Management) | The gamma-theta P&L identity isolates exactly how a delta-hedged short-vol book earns (or loses) the Variance Risk Premium |
+| Tail-risk awareness (Market Risk Management) | Critical evaluation of why the idealized Sharpe overstates real-world performance — discrete hedging slippage, vega risk, and jump/crash risk (Volmageddon) |
+
 ## 2. Data
 
 - **Option chain:** live SPY chain across the 8 nearest expiries (calls +

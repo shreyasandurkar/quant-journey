@@ -10,6 +10,22 @@ This repository is written to be read like a short research note, not just
 a script. It documents what worked, what didn't, and why — including a
 negative headline result.
 
+## Concepts Applied (Mapped to a Quant Finance Curriculum)
+
+This project deliberately exercises the toolkit taught across a Fundamentals
+of Finance / Statistics for Mathematical Finance / Portfolio Construction
+sequence:
+
+| Concept | Where it's used |
+|---|---|
+| Valuation & profitability ratios (Fundamentals of Finance) | Earnings Yield ($1/\text{P/E}$) and ROE as Value/Quality factors (`src/factors.py`) |
+| Cross-sectional OLS regression (Statistics for Math Finance) | Sector/size neutralization: regressing each factor on sector dummies + log market cap and keeping the residual (`neutralize_factor`) |
+| Hypothesis testing / signal quality (Statistics for Math Finance) | Spearman rank Information Coefficient (IC) and its rolling mean/IR as a test of whether the score has genuine predictive power |
+| Winsorization & standardization (Statistics for Math Finance) | Outlier-robust z-scoring before combining factors (`winsorize`, `zscore`) |
+| Portfolio construction under constraints (Portfolio Construction) | Decile long-short formation, turnover caps, transaction-cost drag |
+| Risk-adjusted performance measurement (Portfolio Construction / Dynamic Portfolio Theory) | Sharpe Ratio, Information Ratio vs. benchmark, max drawdown |
+| Empirical pitfalls (Data Analysis & Empirical Methods) | Explicit discussion of look-ahead bias and survivorship bias baked into the free-data design |
+
 ## 1. Motivation & Hypothesis
 
 Classical cross-sectional equity research (Fama-French, Asness et al.)

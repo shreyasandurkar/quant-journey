@@ -19,6 +19,18 @@ often producing concentrated, high-turnover, unstable portfolios
 > entirely — is more turnover-stable than Mean-Variance approaches while
 > remaining risk-competitive.
 
+## Concepts Applied (Mapped to a Quant Finance Curriculum)
+
+| Concept | Where it's used |
+|---|---|
+| Modern Portfolio Theory / Markowitz optimization (Portfolio Construction, Dynamic Portfolio Theory) | Constrained Minimum-Variance optimization solved via SLSQP (`min_variance_weights`) |
+| Matrix calculus & convex optimization (Computational Methods of Mathematical Finance) | The mean-variance objective $w^T\Sigma w$, its gradient structure, and bounded/equality-constrained quadratic programming |
+| Estimation-error theory & shrinkage (Statistics for Math Finance) | Ledoit-Wolf analytic shrinkage toward a constant-correlation target (`ledoit_wolf_shrinkage`) |
+| Random Matrix Theory (Computational Methods / Statistics for Math Finance) | Marchenko-Pastur eigenvalue filtering to separate genuine correlation structure from estimation noise (`rmt_filtered_cov`) |
+| Hierarchical clustering & risk-based allocation (Portfolio Construction) | Hierarchical Risk Parity: correlation-distance clustering, quasi-diagonalization, recursive bisection (`hrp_weights`) |
+| Bayesian updating of views (Dynamic Portfolio Theory) | Simplified Black-Litterman posterior blending an equilibrium prior with analyst views (`black_litterman_posterior`) |
+| Tail-risk measurement (Market Risk Management / Corporate Risk Management) | Historical (non-parametric) 95% VaR and CVaR reported alongside Sharpe/drawdown for every strategy |
+
 ## 2. Universe & Data
 
 22 assets chosen for genuine diversification, not just more tech stocks:

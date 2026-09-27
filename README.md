@@ -22,13 +22,18 @@ NumPy/Pandas/SciPy analysis, and saves reproducible figures + CSV outputs.
 Each project's README documents:
 
 1. **The hypothesis being tested**, stated up front.
-2. **Methodology**, with the actual math being implemented.
-3. **Results**, including the honest headline numbers (not cherry-picked).
-4. **A "why this fails or is limited" section** — every project here has
+2. **A mapping of the techniques used to a quantitative finance
+   curriculum** (stochastic calculus, statistics for mathematical finance,
+   portfolio construction/theory, computational methods, and derivatives/
+   risk management) so the concepts behind the code are explicit, not
+   just the implementation.
+3. **Methodology**, with the actual math being implemented.
+4. **Results**, including the honest headline numbers (not cherry-picked).
+5. **A "why this fails or is limited" section** — every project here has
    at least one genuine negative or marginal result, disclosed
    deliberately rather than hidden, along with the data limitations of
    using free sources (`yfinance`) instead of institutional data feeds.
-5. **What a production version would need** to be closer to
+6. **What a production version would need** to be closer to
    institutional-grade.
 
 ## Setup
